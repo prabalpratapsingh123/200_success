@@ -5,7 +5,7 @@ import { Users, Smartphone, TrendingUp, Target, MapPin, DollarSign, Clock, Activ
 const Sidebar = ({ activeTab, setActiveTab }) => {
   const menuItems = [
     { id: 'explorer', label: 'Segment Explorer', icon: Eye },
-    { id: 'dashboard', label: 'Dashboard', icon: Activity },
+    // { id: 'dashboard', label: 'Dashboard', icon: Activity },
     { id: 'adOptimisaion', label: 'Ads Optimsation', icon: Megaphone },
     // { id: 'segments', label: 'User Segments', icon: Users },
     // { id: 'geography', label: 'Geography', icon: MapPin },

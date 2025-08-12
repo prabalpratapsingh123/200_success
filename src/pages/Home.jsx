@@ -13,7 +13,7 @@ const Home = () => {
   const renderContent = () => {
     switch (activeTab) {
       case 'explorer': return <SegmentExplorer />;
-      case 'dashboard': return <Dashboard />;
+    //   case 'dashboard': return <Dashboard />;
       case 'adOptimisaion': return <AdsOptimisation/>;
     //   case 'segments': return <div className="text-center py-12 text-gray-600">User Segments view coming soon...</div>;
     //   case 'geography': return <div className="text-center py-12 text-gray-600">Geography view coming soon...</div>;
