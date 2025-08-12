@@ -10,9 +10,7 @@ const SegmentExplorer = () => {
   const [filters, setFilters] = useState({
     region: 'All',
     ageGroup: 'All',
-    appType: 'All',
     usageLevel: 'All',
-    tier: 'All'
   });
   
   const [filtersOpen, setFiltersOpen] = useState(true);
@@ -22,9 +20,7 @@ const SegmentExplorer = () => {
     return userData.filter(item => {
       return (filters.region === 'All' || item.region === filters.region) &&
              (filters.ageGroup === 'All' || item.ageGroup === filters.ageGroup) &&
-             (filters.appType === 'All' || item.appType === filters.appType) &&
-             (filters.usageLevel === 'All' || item.usageLevel === filters.usageLevel) &&
-             (filters.tier === 'All' || item.tier === filters.tier);
+             (filters.usageLevel === 'All' || item.usageLevel === filters.usageLevel)
     });
   }, [filters]);
 
@@ -37,9 +33,7 @@ const SegmentExplorer = () => {
     setFilters({
       region: 'All',
       ageGroup: 'All',
-      appType: 'All',
-      usageLevel: 'All',
-      tier: 'All'
+      usageLevel: 'All'
     });
     setSelectedSegment(null);
   };
@@ -69,13 +63,13 @@ const SegmentExplorer = () => {
         selectedSegment={selectedSegment}
       />
 
-      {/* {selectedSegment && (
+      {selectedSegment && (
         <SegmentDetailsModal
           segment={selectedSegment}
           onClose={() => setSelectedSegment(null)}
           onDownload={(data) => console.log('Downloaded:', data)}
         />
-      )} */}
+      )}
     </div>
   );
 };

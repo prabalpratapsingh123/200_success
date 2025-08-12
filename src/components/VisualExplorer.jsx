@@ -3,7 +3,7 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, Area, AreaChart, ScatterChart, Scatter } from 'recharts';
 import { Users, Smartphone, TrendingUp, Target, MapPin, DollarSign, Clock, Activity, Filter, Download, Eye, RefreshCw } from 'lucide-react';
 import SegmentCard from './SegmentCard';
-const VisualExplorer = ({ data, onSegmentSelect, selectedSegment }) => {
+const VisualExplorer = ({ data,onSegmentSelect, selectedSegment }) => {
   return (
     <div className="space-y-6">
       {/* Scatter Plot for Visual Exploration */}

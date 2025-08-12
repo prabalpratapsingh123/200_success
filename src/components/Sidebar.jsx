@@ -1,4 +1,4 @@
-import { Users, Smartphone, TrendingUp, Target, MapPin, DollarSign, Clock, Activity, Filter, Download, Eye, RefreshCw } from 'lucide-react';
+import { Users, Smartphone, TrendingUp, Target, MapPin, DollarSign, Clock, Activity, Filter, Download, Eye, RefreshCw ,Megaphone} from 'lucide-react';
 
 
 
@@ -6,10 +6,11 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
   const menuItems = [
     { id: 'explorer', label: 'Segment Explorer', icon: Eye },
     { id: 'dashboard', label: 'Dashboard', icon: Activity },
-    { id: 'segments', label: 'User Segments', icon: Users },
-    { id: 'geography', label: 'Geography', icon: MapPin },
-    { id: 'behavior', label: 'Behavior', icon: Smartphone },
-    { id: 'monetization', label: 'Monetization', icon: DollarSign }
+    { id: 'adOptimisaion', label: 'Ads Optimsation', icon: Megaphone },
+    // { id: 'segments', label: 'User Segments', icon: Users },
+    // { id: 'geography', label: 'Geography', icon: MapPin },
+    // { id: 'behavior', label: 'Behavior', icon: Smartphone },
+    // { id: 'monetization', label: 'Monetization', icon: DollarSign }
   ];
 
   return (

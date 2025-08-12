@@ -8,11 +8,7 @@ const SegmentCard = ({ segment, onClick, isSelected }) => (
     <div className="p-6">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-gray-900">{segment.city}, {segment.region}</h3>
-        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-          segment.tier === 'Tier 1' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'
-        }`}>
-          {segment.tier}
-        </span>
+
       </div>
       
       <div className="grid grid-cols-2 gap-4 mb-4">
@@ -30,10 +26,6 @@ const SegmentCard = ({ segment, onClick, isSelected }) => (
         <div className="text-center">
           <p className="text-gray-600">Age</p>
           <p className="font-semibold">{segment.ageGroup}</p>
-        </div>
-        <div className="text-center">
-          <p className="text-gray-600">App</p>
-          <p className="font-semibold">{segment.appType}</p>
         </div>
         <div className="text-center">
           <p className="text-gray-600">Usage</p>
