@@ -1,8 +1,57 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import Papa from "papaparse";
 const AdsOptimisation = () => {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [selectedAdPlatform, setSelectedAdPlatform] = useState("Google Ads");
   const [selectedCampaign, setSelectedCampaign] = useState("App Install Boost");
+
+
+    useEffect(() => {
+    loadCampaignData();
+  }, [selectedCampaign]);
+    const loadCampaignData = async () => {
+    try {
+      setLoading(true);
+      
+
+      const response = await fetch('/Users/dev/Documents/hackathon/my-app/src/data/ads_data.csv');
+      
+      if (!response.ok) {
+        throw new Error(`Failed to load CSV file: ${response.status} ${response.statusText}`);
+      }
+      
+      const csvText = await response.text();
+
+      Papa.parse(csvText, {
+        header: true,
+        dynamicTyping: true,
+        skipEmptyLines: true,
+        complete: (results) => {
+          if (results.errors.length > 0) {
+            console.error('CSV parsing errors:', results.errors);
+            setError('Error parsing CSV data');
+            return;
+          }
+          // processCampaignData(results.data);
+          setLoading(false);
+        },
+        error: (error) => {
+          console.error('CSV parsing error:', error);
+          setError('Failed to parse CSV data');
+          setLoading(false);
+        }
+      });
+
+    } catch (err) {
+      console.error('Error loading campaign data:', err);
+      setError('Failed to load campaign data');
+      setLoading(false);
+    }
+  };
+
+
+
   
   const adPlatforms = ["Google Ads", "Meta Ads", "LinkedIn Ads", "Instagram Ads"];
   
@@ -173,6 +222,9 @@ const campaignDetails = {
   };
 
 
+
+
+
   const selectedDetails = campaignDetails[selectedCampaign] || null;
    const allCampaigns = Object.entries(campaignDetails).map(([name, data]) => ({
     name,
@@ -188,12 +240,13 @@ const campaignDetails = {
     .slice(0, 5);
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 space-y-6">
       {/* Title */}
-      <div>
+      
+      {/* <div> */}
         {/* <h1 className="text-2xl font-bold">Ads Optimisation</h1> */}
-        <p className="text-gray-500">Analyse and improve ad campaign performance</p>
-      </div>
+        {/* <p className="text-gray-500">Analyse and improve ad campaign performance</p> */}
+      {/* </div> */}
       
       {/* Filters */}
       <div className="bg-white rounded-xl shadow p-4 flex gap-4">
@@ -333,9 +386,7 @@ const campaignDetails = {
             </table>
           </div>
         </div>
-      </div>
-
-      
+      </div>      
   
     </div>
   );
