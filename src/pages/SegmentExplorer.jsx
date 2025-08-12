@@ -105,7 +105,7 @@ const SegmentExplorer = () => {
       />
       
 
-      <SummaryStats data={filteredData} />
+      {/* <SummaryStats data={filteredData} /> */}
 
       <VisualExplorer
         data={filteredData}
