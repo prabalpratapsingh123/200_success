@@ -64,30 +64,30 @@ const SegmentExplorer = () => {
     {
       title: 'College Tech Enthusiasts',
       details: [
-        { value: '18.2K', label: 'Users' },
+        { value: '671', label: 'Users' },
         { value: '18-24', label: 'Age Range' },
-        { value: '85%', label: 'Mobile First' },
-        { value: '₹299', label: 'Avg. Spend' }
+        { value: '60%', label: 'Course Completion %' },
+        { value: '₹485', label: 'Avg. Spend' }
       ],
       description: 'High engagement with coding bootcamps, language learning, and skill development apps. Prime target for freemium conversion strategies.'
     },
     {
       title: 'Working Professional Learners',
       details: [
-        { value: '24.7K', label: 'Users' },
-        { value: '25-35', label: 'Age Range' },
-        { value: '67%', label: 'Evening Usage' },
-        { value: '₹899', label: 'Avg. Spend' }
+        { value: '510', label: 'Users' },
+        { value: '25-34', label: 'Age Range' },
+        { value: '4.8%', label: 'Evening Usage' },
+        { value: '₹839', label: 'Avg. Spend' }
       ],
       description: 'Focus on professional certifications, business skills, and career advancement. Highest paying segment with premium subscription preference.'
     },
     {
       title: 'Rural Digital Learners',
       details: [
-        { value: '15.3K', label: 'Users' },
-        { value: '16-28', label: 'Age Range' },
-        { value: '45%', label: 'Low Bandwidth' },
-        { value: '₹49', label: 'Avg. Spend' }
+        { value: '1.4K', label: 'Users' },
+        { value: '16-24', label: 'Age Range' },
+        { value: '6%', label: 'Low Bandwidth' },
+        { value: '₹484', label: 'Avg. Spend' }
       ],
       description: 'Growing segment with basic smartphone usage. Focus on offline content, vernacular languages, and affordable micro-learning modules.'
     }
