@@ -6,9 +6,7 @@ import { Users, Smartphone, TrendingUp, Target, MapPin, DollarSign, Clock, Activ
 const filterOptions = {
   regions: ['All', 'Maharashtra', 'Karnataka', 'Tamil Nadu', 'Uttar Pradesh', 'Gujarat', 'West Bengal', 'Delhi', 'Rajasthan', 'Haryana'],
   ageGroups: ['All', '18-25', '26-35', '36-45', '46+'],
-  appTypes: ['All', 'Gaming', 'Social Media', 'E-commerce', 'Entertainment', 'Finance'],
-  usageLevels: ['All', 'Low', 'Medium', 'High'],
-  tiers: ['All', 'Tier 1', 'Tier 2']
+  usageLevels: ['All', 'Low', 'Medium', 'High']
 };
 
 
@@ -65,18 +63,7 @@ const FilterPanel = ({ filters, onFilterChange, onReset, isOpen, onToggle }) => 
           </select>
         </div>
 
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">App Type</label>
-          <select
-            value={filters.appType}
-            onChange={(e) => onFilterChange('appType', e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          >
-            {filterOptions.appTypes.map(type => (
-              <option key={type} value={type}>{type}</option>
-            ))}
-          </select>
-        </div>
+
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">Usage Level</label>
@@ -91,18 +78,7 @@ const FilterPanel = ({ filters, onFilterChange, onReset, isOpen, onToggle }) => 
           </select>
         </div>
 
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">City Tier</label>
-          <select
-            value={filters.tier}
-            onChange={(e) => onFilterChange('tier', e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          >
-            {filterOptions.tiers.map(tier => (
-              <option key={tier} value={tier}>{tier}</option>
-            ))}
-          </select>
-        </div>
+
       </div>
     )}
   </div>

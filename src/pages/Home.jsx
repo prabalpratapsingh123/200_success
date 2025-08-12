@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import SegmentExplorer from "./SegmentExplorer";
 import Dashboard from "./Dashboard";
+import AdsOptimisation from "./AdsOptimisation";
 
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
     switch (activeTab) {
       case 'explorer': return <SegmentExplorer />;
       case 'dashboard': return <Dashboard />;
+      case 'adOptimisaion': return <AdsOptimisation/>;
     //   case 'segments': return <div className="text-center py-12 text-gray-600">User Segments view coming soon...</div>;
     //   case 'geography': return <div className="text-center py-12 text-gray-600">Geography view coming soon...</div>;
     //   case 'behavior': return <div className="text-center py-12 text-gray-600">Behavior view coming soon...</div>;
