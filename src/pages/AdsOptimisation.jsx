@@ -31,7 +31,7 @@ const AdsOptimisation = () => {
     <div className="p-6 space-y-6">
       {/* Title */}
       <div>
-        <h1 className="text-2xl font-bold">Ads Optimisation</h1>
+        {/* <h1 className="text-2xl font-bold">Ads Optimisation</h1> */}
         <p className="text-gray-500">Analyse and improve ad campaign performance</p>
       </div>
       

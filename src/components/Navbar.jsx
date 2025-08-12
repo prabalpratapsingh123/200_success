@@ -9,6 +9,7 @@ const Navbar = ({ activeTab }) => {
       case 'geography': return 'Geographic Distribution';
       case 'behavior': return 'User Behavior Patterns';
       case 'monetization': return 'Monetization Insights';
+      case 'adOptimisaion' : return 'Ads Optimization'
       default: return 'Segment Explorer';
     }
   };

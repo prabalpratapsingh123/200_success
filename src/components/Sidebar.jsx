@@ -6,7 +6,7 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
   const menuItems = [
     { id: 'explorer', label: 'Segment Explorer', icon: Eye },
     // { id: 'dashboard', label: 'Dashboard', icon: Activity },
-    { id: 'adOptimisaion', label: 'Ads Optimsation', icon: Megaphone },
+    { id: 'adOptimisaion', label: 'Ads Optimization', icon: Megaphone },
     // { id: 'segments', label: 'User Segments', icon: Users },
     // { id: 'geography', label: 'Geography', icon: MapPin },
     // { id: 'behavior', label: 'Behavior', icon: Smartphone },
@@ -16,8 +16,8 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
   return (
     <div className="bg-white shadow-lg h-full">
       <div className="p-6">
-        <h1 className="text-2xl font-bold text-gray-900">Analytics Hub</h1>
-        <p className="text-sm text-gray-600 mt-1">Mobile User Insights - India</p>
+        <h1 className="text-2xl font-bold text-gray-900">M.O.R.D</h1>
+        <p className="text-sm text-gray-600 mt-1">Marketing Optimization & Retention Dashboard</p>
       </div>
       <nav className="mt-6">
         {menuItems.map((item) => {
