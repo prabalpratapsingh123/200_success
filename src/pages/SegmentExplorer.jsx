@@ -60,6 +60,38 @@ const SegmentExplorer = () => {
   ];
 
 
+  const audienceSegments = [
+    {
+      title: 'College Tech Enthusiasts',
+      details: [
+        { value: '18.2K', label: 'Users' },
+        { value: '18-24', label: 'Age Range' },
+        { value: '85%', label: 'Mobile First' },
+        { value: '₹299', label: 'Avg. Spend' }
+      ],
+      description: 'High engagement with coding bootcamps, language learning, and skill development apps. Prime target for freemium conversion strategies.'
+    },
+    {
+      title: 'Working Professional Learners',
+      details: [
+        { value: '24.7K', label: 'Users' },
+        { value: '25-35', label: 'Age Range' },
+        { value: '67%', label: 'Evening Usage' },
+        { value: '₹899', label: 'Avg. Spend' }
+      ],
+      description: 'Focus on professional certifications, business skills, and career advancement. Highest paying segment with premium subscription preference.'
+    },
+    {
+      title: 'Rural Digital Learners',
+      details: [
+        { value: '15.3K', label: 'Users' },
+        { value: '16-28', label: 'Age Range' },
+        { value: '45%', label: 'Low Bandwidth' },
+        { value: '₹49', label: 'Avg. Spend' }
+      ],
+      description: 'Growing segment with basic smartphone usage. Focus on offline content, vernacular languages, and affordable micro-learning modules.'
+    }
+  ];
 
 
   return (
@@ -126,8 +158,61 @@ const SegmentExplorer = () => {
           </ResponsiveContainer>
         </div>
       </div>
-
+      {/* Audience Segments Section */}
+<div className="bg-white rounded-xl shadow-lg p-6 mt-6">
+  {/* Header */}
+  <div className="flex items-center justify-between mb-6">
+    <div className="flex items-center gap-2">
+      <span className="text-pink-500 text-xl">🎯</span>
+      <h3 className="text-lg font-semibold text-gray-900">
+        Key Audience Segments
+      </h3>
     </div>
+    <button className="flex items-center gap-2 bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium">
+      <Download size={16} />
+      Download Segment Report
+    </button>
+  </div>
+
+  {/* Cards */}
+  <div className="space-y-4">
+    {audienceSegments.map((segment, idx) => (
+      <div
+        key={idx}
+        className="bg-gray-50 border border-gray-200 rounded-lg p-4"
+      >
+        {/* Title */}
+        <div className="flex items-center gap-2 mb-4">
+          <span className="text-lg">
+            {idx === 0 && "🎓"}
+            {idx === 1 && "💼"}
+            {idx === 2 && "🏡"}
+          </span>
+          <h4 className="font-semibold text-gray-900">{segment.title}</h4>
+        </div>
+
+        {/* Details */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4">
+          {segment.details.map((detail, i) => (
+            <div
+              key={i}
+              className="bg-white rounded-md shadow p-2 text-center"
+            >
+              <div className="text-indigo-600 font-bold text-lg">
+                {detail.value}
+              </div>
+              <div className="text-xs text-gray-500">{detail.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Description */}
+        <p className="text-sm text-gray-600">{segment.description}</p>
+      </div>
+    ))}
+  </div>
+</div>
+ </div>
   );
 };
 
