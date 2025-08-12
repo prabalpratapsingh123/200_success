@@ -3,7 +3,7 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, Area, AreaChart, ScatterChart, Scatter } from 'recharts';
 import { Users, Smartphone, TrendingUp, Target, MapPin, DollarSign, Clock, Activity, Filter, Download, Eye, RefreshCw } from 'lucide-react';
 import SegmentCard from './SegmentCard';
-const VisualExplorer = ({ data,onSegmentSelect, selectedSegment }) => {
+const VisualExplorer = ({ data, selectedSegment }) => {
   return (
     <div className="space-y-6">
       {/* Scatter Plot for Visual Exploration */}
@@ -62,17 +62,6 @@ const VisualExplorer = ({ data,onSegmentSelect, selectedSegment }) => {
         </div>
       </div>
 
-      {/* Segment Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {data.map((segment) => (
-          <SegmentCard
-            key={segment.id}
-            segment={segment}
-            onClick={onSegmentSelect}
-            isSelected={selectedSegment?.id === segment.id}
-          />
-        ))}
-      </div>
     </div>
   );
 };

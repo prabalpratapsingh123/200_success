@@ -17,7 +17,7 @@ const Navbar = ({ activeTab }) => {
     <div className="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
       <h2 className="text-xl font-semibold text-gray-900">{getTabTitle()}</h2>
       <p className="text-sm text-gray-600 mt-1">
-        Real-time insights for mobile app optimization in the Indian market
+        Real-time insights of user trends in the Indian market
       </p>
     </div>
   );
