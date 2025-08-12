@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Papa from "papaparse";
+import Papa from "papaparse";import { Info } from "lucide-react";
+
 const AdsOptimisation = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -386,8 +387,26 @@ const campaignDetails = {
             </table>
           </div>
         </div>
-      </div>      
-  
+      </div>
+      <div className="bg-blue-50 rounded-xl border border-blue-200 p-6 mt-8">
+        <div className="flex items-start gap-2 mb-4">
+          <Info className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+          <h3 className="text-lg font-semibold text-blue-800">Campaign Performance Insights</h3>
+        </div>
+        <div className="flex items-start gap-2">
+            {/* <span className="text-red-600 font-semibold">Red Flags:</span> */}
+            <span>High NPS signals better retention (ex: short-term hype and poor product market fit)</span>
+          </div>
+          <div className="flex items-start gap-2">
+            {/* <span className="text-green-600 font-semibold">Optimization Focus:</span> */}
+            <span>Low CAC with high retention is what drives ROI</span>
+          </div>
+          <div className="flex items-start gap-2">
+            {/* <span className="text-blue-600 font-semibold">Platform Strategy:</span> */}
+            <span>High CAC with low retention are red flags</span>
+          </div>
+        
+    </div>
     </div>
   );
 };
