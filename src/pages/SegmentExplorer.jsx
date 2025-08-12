@@ -1,4 +1,4 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, Area, AreaChart, ScatterChart, Scatter } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, Area, AreaChart, ScatterChart, Scatter,Legend } from 'recharts';
 import { Users, Smartphone, TrendingUp, Target, MapPin, DollarSign, Clock, Activity, Filter, Download, Eye, RefreshCw } from 'lucide-react';
 
 import React, { useState, useMemo } from 'react';
@@ -44,20 +44,59 @@ const SegmentExplorer = () => {
     setSelectedSegment(selectedSegment?.id === segment.id ? null : segment);
   };
 
-    const engagementTrends = [
-    { month: 'Jan', dau: 45000, retention: 68, satisfaction: 7.2 },
-    { month: 'Feb', dau: 48000, retention: 71, satisfaction: 7.4 },
-    { month: 'Mar', dau: 52000, retention: 74, satisfaction: 7.6 },
-    { month: 'Apr', dau: 55000, retention: 76, satisfaction: 7.8 },
-    { month: 'May', dau: 58000, retention: 78, satisfaction: 8.0 },
-    { month: 'Jun', dau: 61000, retention: 80, satisfaction: 8.2 }
+
+    const acquisitionData = [
+    { name: 'Organic Search', value: 30.0, avg_retenetion: 42.51, color: '#6366f1' },
+    { name: 'Google Ads', value: 25.5, avg_retenetion: 43.41, color: '#ef4444' },
+    { name: 'Meta Ads', value: 20.3, avg_retenetion: 47.1, color: '#10b981' },
+    { name: 'Referral', value: 9.65, avg_retenetion: 41.3, color: '#f59e0b' },
+    { name: 'LinkedIn Ads', value: 9.74, avg_retenetion: 40.5, color: '#8b5cf6' },
+    { name: 'YouTube Ads', value: 4.74, avg_retenetion: 50.1, color: '#06b6d4' }
   ];
 
-  const incomeSegments = [
-    { name: 'Low Income (<₹25K)', value: 35, color: '#FF6B6B' },
-    { name: 'Middle Income (₹25K-₹75K)', value: 45, color: '#4ECDC4' },
-    { name: 'High Income (>₹75K)', value: 20, color: '#45B7D1' }
+  // Gender Distribution Data
+  const genderData = [
+    { name: 'Male', value: 51.9, color: '#6366f1' },
+    { name: 'Female', value: 44.9, color: '#ef4444' },
+    { name: 'Other', value: 3.2, color: '#10b981' }
   ];
+
+    const renderLabel = (entry) => {
+    return `${entry.value}%`;
+  };
+
+
+    const CustomLegend = ({ payload }) => {
+    return (
+      <div className="flex flex-wrap justify-center gap-4 mt-4">
+        {payload.map((entry, index) => (
+          <div key={index} className="flex items-center gap-2">
+            <div 
+              className="w-3 h-3 rounded-sm" 
+              style={{ backgroundColor: entry.color }}
+            />
+            <span className="text-sm text-gray-600">{entry.value}</span>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  const CustomPieTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    const { name, value ,avg_retenetion} = payload[0].payload;
+    const users = Math.round(value * 100); // multiply by 100 and round
+
+    return (
+      <div className="bg-white p-3 shadow-lg rounded-lg border border-gray-200">
+        <p className="font-semibold text-gray-800">{name}</p>
+        <p className="text-sm text-gray-600">Total Users: {users}</p>
+        <p className="text-sm text-gray-600">Avg Retention: {avg_retenetion}%</p>
+      </div>
+    );
+  }
+  return null;
+};
 
 
   const audienceSegments = [
@@ -120,7 +159,7 @@ const SegmentExplorer = () => {
           onDownload={(data) => console.log('Downloaded:', data)}
         />
       )}
-
+{/* 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white rounded-xl shadow-lg p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Engagement Trends</h3>
@@ -157,7 +196,78 @@ const SegmentExplorer = () => {
             </PieChart>
           </ResponsiveContainer>
         </div>
+      </div> */}
+ <div className="grid grid-cols-2 gap-8 max-w-6xl mx-auto">
+        
+        {/* User Acquisition Source Chart */}
+        <div className="bg-white rounded-xl shadow-lg p-6">
+          <h2 className="text-xl font-semibold text-gray-800 mb-6 text-center">
+            User Acquisition Source Split
+          </h2>
+          
+          <ResponsiveContainer width="100%" height={400}>
+            <PieChart>
+              <Pie
+                data={acquisitionData}
+                cx="50%"
+                cy="50%"
+                labelLine={false}
+                label={renderLabel}
+                outerRadius={120}
+                fill="#8884d8"
+                dataKey="value"
+              >
+                {acquisitionData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+              <Tooltip content={<CustomPieTooltip />} />
+              <Legend content={<CustomLegend />} />
+            </PieChart>
+          </ResponsiveContainer>
+          
+          <p className="text-sm text-gray-600 text-center mt-4 px-4">
+            Look for channels with a large share but low performance elsewhere. 
+            Small but high-performing slices = growth opportunity.
+          </p>
+        </div>
+
+        {/* Gender Distribution Chart */}
+        <div className="bg-white rounded-xl shadow-lg p-6">
+          <h2 className="text-xl font-semibold text-gray-800 mb-6 text-center">
+            Gender Distribution
+          </h2>
+          
+          <ResponsiveContainer width="100%" height={400}>
+            <PieChart>
+              <Pie
+                data={genderData}
+                cx="50%"
+                cy="50%"
+                labelLine={false}
+                label={renderLabel}
+                outerRadius={120}
+                fill="#8884d8"
+                dataKey="value"
+              >
+                {genderData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+              <Legend content={<CustomLegend />} />
+            </PieChart>
+          </ResponsiveContainer>
+          
+          <p className="text-sm text-gray-600 text-center mt-4 px-4">
+            If one gender dominates but product appeals to both, 
+            re-target underrepresented group.
+          </p>
+        </div>
       </div>
+
+
+
+
       {/* Audience Segments Section */}
 <div className="bg-white rounded-xl shadow-lg p-6 mt-6">
   {/* Header */}
